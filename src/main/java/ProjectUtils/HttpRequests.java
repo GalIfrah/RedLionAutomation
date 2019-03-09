@@ -17,7 +17,7 @@ public class HttpRequests {
 		
 		HttpResponse<JsonNode> jsonResponse = Unirest.post("https://slack.com/api/files.upload")
 			  .header("accept", "application/json")
-			  .header("Authorization", "Bearer xoxs-568837673152-571019995094-571925806066-4af59ac7d7aaa728aa9c92168a4fd2c5dcf7f4a1f37ae8f44234fc0fabb14513")
+			  .header("Authorization", "Bearer xoxs-568837673152-571019995094-571813176899-d6b3145af4bc7cdd40dc978cf1c00ecb10bd414600ce8b5c9aa328b1318370ce")
 			  .field("channels", "CGTLKU1DH")
 			  .field("file", new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\RD_screen.png"))
 			  .asJson();
