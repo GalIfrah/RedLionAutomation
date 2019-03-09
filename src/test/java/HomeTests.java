@@ -41,8 +41,6 @@ public class HomeTests extends Basic {
 		
 		HomeScreen.clickOnCheckAvailability();
 		
-		driverWrapper.takeScreenShot("RD_screen");
-		
 		HomeScreen.clickOnQuickBook();
 		
 		String full_cancellation_text = HomeScreen.getCencelationPolicyText();
@@ -51,6 +49,7 @@ public class HomeTests extends Basic {
 			
 			System.out.println("good meod!!!");
 			
+			driverWrapper.takeScreenShot("RD_screen");
 			// perform room reservation 
 		}
 		
