@@ -198,9 +198,9 @@ public class WebDriverWrapper {
 		File source = sc.getScreenshotAs(OutputType.FILE);
 		
 		
-		FileUtils.copyFile(source, new File("/RedLionAutomation/tree/master/ScreenShots" + name + ".png"));
+		FileUtils.copyFile(source, new File("https://github.com/GalIfrah/RedLionAutomation/tree/master/ScreenShots" + name + ".png"));
 		
-		System.out.println(name + ".");
+		System.out.println(name);
 		
 	}
 	
