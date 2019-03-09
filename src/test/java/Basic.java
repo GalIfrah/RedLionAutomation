@@ -30,7 +30,6 @@ public class Basic {
 	
 	public static Properties prop;
 	
-	public static HttpRequests request = new HttpRequests();
 	
 	
 	
@@ -89,6 +88,9 @@ public class Basic {
 		
 		readProperties.killInput();
 		
+
+		HttpRequests request = new HttpRequests();
+
 		
 		request.postFile();
 		
