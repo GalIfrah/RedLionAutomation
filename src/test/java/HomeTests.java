@@ -16,9 +16,7 @@ public class HomeTests extends Basic {
 	@Test
 	public void test1() throws Exception {
 
-		HttpRequests request = new HttpRequests();
 		
-		request.postFile();
 		
 //		HomeScreen.openRedLion();
 //		
