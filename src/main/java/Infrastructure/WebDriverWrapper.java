@@ -200,7 +200,7 @@ public class WebDriverWrapper {
 		
 		FileUtils.copyFile(source, new File("./RedLionAutomation/tree/master/ScreenShots" + name + ".png"));
 		
-		System.out.println(name);
+		System.out.println(name + ".");
 		
 	}
 	
