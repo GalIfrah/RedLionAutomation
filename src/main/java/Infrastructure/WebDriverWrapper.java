@@ -181,7 +181,7 @@ public class WebDriverWrapper {
 		WebElement element = remoteWebDriver.findElement(By.xpath(value));
 		((JavascriptExecutor) remoteWebDriver).executeScript("arguments[0].scrollIntoView();", element);
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(500);
 		} catch(InterruptedException e) {
 			
 			System.out.println(e.getMessage());
@@ -198,7 +198,7 @@ public class WebDriverWrapper {
 		File source = sc.getScreenshotAs(OutputType.FILE);
 		
 		
-		FileUtils.copyFile(source, new File("https://github.com/GalIfrah/RedLionAutomation/tree/master/ScreenShots" + name + ".png"));
+		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
 		
 		System.out.println(name);
 		
