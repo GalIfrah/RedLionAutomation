@@ -43,6 +43,8 @@ public class HomeTests extends Basic {
 		
 		HomeScreen.clickOnQuickBook();
 		
+//		Thread.sleep(2000);
+		
 		String full_cancellation_text = HomeScreen.getCencelationPolicyText();
 		
 		if(HomeScreen.HasCancellation(full_cancellation_text)) {
