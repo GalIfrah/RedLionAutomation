@@ -172,21 +172,12 @@ public class WebDriverWrapper {
 	
 	
 	public void scrollToElement(String value) throws InterruptedException {
-		try {
-			Thread.sleep(2000);
-		} catch(InterruptedException e) {
-			
-			System.out.println(e.getMessage());
-		}
+		
 		WebElement element = remoteWebDriver.findElement(By.xpath(value));
+		
+		
 		((JavascriptExecutor) remoteWebDriver).executeScript("arguments[0].scrollIntoView();", element);
-		try {
-			Thread.sleep(500);
-		} catch(InterruptedException e) {
-			
-			System.out.println(e.getMessage());
-		}
-
+		
 	}
 	
 	
@@ -226,6 +217,21 @@ public class WebDriverWrapper {
 	public void MaximizeWIndow() {
 		
 		remoteWebDriver.manage().window().maximize();
+	}
+	
+	
+	public void waitForElement(int time_to_wait) {
+		
+		try {
+			
+			Thread.sleep(3000);
+		
+			
+		} catch(InterruptedException e) {
+			
+			
+			System.out.println(e.getMessage());
+		}
 	}
 	
 }
