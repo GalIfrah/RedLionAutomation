@@ -136,16 +136,20 @@ public class PageObjects {
 		
 		public static String getCencelationPolicyText() throws InterruptedException {
 			
+			driverWrapper.waitForElement(3000);
+			
+			
 			driverWrapper.scrollToElement(CANCALLATION_POLICY);
 			
+			
+			driverWrapper.waitForElement(4000);
+
 			
 			driverWrapper.hover(CANCALLATION_POLICY);
 			
 			
 			return driverWrapper.findElementBy(Locators.XPATH, CANCELATION_POPUP).getText();
 			
-			
-
 		}
 		
 		
