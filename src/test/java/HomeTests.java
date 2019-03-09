@@ -8,52 +8,57 @@ import java.io.IOException;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import PageObjects.PageObjects.HomeScreen;;
+import PageObjects.PageObjects.HomeScreen;
+import ProjectUtils.HttpRequests;
 
 public class HomeTests extends Basic {
 
 	@Test
-	public void test1() throws InterruptedException, IOException {
+	public void test1() throws Exception {
 
-		HomeScreen.openRedLion();
+		HttpRequests request = new HttpRequests();
 		
-		HomeScreen.clickOnHelloRewardsPopup();
+		request.postFile();
 		
-		HomeScreen.clickOnHelloRewards();
-				
-		HomeScreen.enterEmail();
-		
-		HomeScreen.enterPassword();
-		
-		HomeScreen.clickOnSignIn();
-		
-		HomeScreen.enterLocationName();
-		
-		HomeScreen.chooseFirstLocatio();
-	
-		HomeScreen.clickOnStartDateField();
-		
-		int active_date = HomeScreen.getSelectedStartDateIndex(HomeScreen.getDatePickerValues());
-		
-		HomeScreen.getDatePickerValues().get(active_date + 7).click();
-		
-		HomeScreen.getDatePickerValues().get(active_date + 8).click();
-		
-		HomeScreen.clickOnCheckAvailability();
-		
-		HomeScreen.clickOnQuickBook();
-				
-		String full_cancellation_text = HomeScreen.getCencelationPolicyText();
-		
-		if(HomeScreen.HasCancellation(full_cancellation_text)) {
-			
-			System.out.println("good meod!!!");
-			
-			driverWrapper.takeScreenShot("RD_screen");
-			// perform room reservation 
-		}
-		
-		Thread.sleep(1000);
+//		HomeScreen.openRedLion();
+//		
+//		HomeScreen.clickOnHelloRewardsPopup();
+//		
+//		HomeScreen.clickOnHelloRewards();
+//				
+//		HomeScreen.enterEmail();
+//		
+//		HomeScreen.enterPassword();
+//		
+//		HomeScreen.clickOnSignIn();
+//		
+//		HomeScreen.enterLocationName();
+//		
+//		HomeScreen.chooseFirstLocatio();
+//	
+//		HomeScreen.clickOnStartDateField();
+//		
+//		int active_date = HomeScreen.getSelectedStartDateIndex(HomeScreen.getDatePickerValues());
+//		
+//		HomeScreen.getDatePickerValues().get(active_date + 7).click();
+//		
+//		HomeScreen.getDatePickerValues().get(active_date + 8).click();
+//		
+//		HomeScreen.clickOnCheckAvailability();
+//		
+//		HomeScreen.clickOnQuickBook();
+//				
+//		String full_cancellation_text = HomeScreen.getCencelationPolicyText();
+//		
+//		if(HomeScreen.HasCancellation(full_cancellation_text)) {
+//			
+//			System.out.println("good meod!!!");
+//			
+//			driverWrapper.takeScreenShot("RD_screen");
+//			// perform room reservation 
+//		}
+//		
+//		Thread.sleep(1000);
 	
 	}
 	
