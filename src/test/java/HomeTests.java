@@ -41,6 +41,8 @@ public class HomeTests extends Basic {
 		
 		HomeScreen.clickOnCheckAvailability();
 		
+		driverWrapper.takeScreenShot("RD_screen");
+		
 		HomeScreen.clickOnQuickBook();
 		
 		String full_cancellation_text = HomeScreen.getCencelationPolicyText();
