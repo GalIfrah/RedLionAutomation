@@ -53,9 +53,9 @@ public class HomeTests extends Basic {
 			driverWrapper.takeScreenShot("RD_screen");
 			// perform room reservation 
 		}
-		
+//		
 		Thread.sleep(1000);
-	
+		
 	}
 	
 }
