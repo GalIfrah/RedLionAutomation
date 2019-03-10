@@ -18,10 +18,11 @@ public class HomeTests extends Basic {
 	
 		HomeScreen.openRedLion();
 		
+		driverWrapper.takeScreenShot("gal");
 		
 		HttpRequests request = new HttpRequests();
-
-		request.postFile(driverWrapper.takeScreenShot("gal"));
+		
+		request.postFile();
 		
 //		HomeScreen.clickOnHelloRewardsPopup();
 //		
