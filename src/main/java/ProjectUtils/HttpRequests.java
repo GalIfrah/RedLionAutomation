@@ -21,7 +21,7 @@ public class HttpRequests {
 			  .header("accept", "application/json")
 			  .header("Authorization", System.getProperty("slack"))
 			  .field("channels", "CGTLKU1DH")
-			  .field("file", new File("/job/RedLionProduction/ws/ScreenShots/gal.png"))
+			  .field("file", new File("C:\\Program Files (x86)\\Jenkins\\workspace\\RedLionProduction\\ScreenShots\\GAL.png"))
 			  .asJson();
 	
 	}
