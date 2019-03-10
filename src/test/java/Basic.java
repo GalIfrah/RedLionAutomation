@@ -92,7 +92,7 @@ public class Basic {
 		HttpRequests request = new HttpRequests();
 
 		
-		request.postFile(prop.getProperty("TOKEN"));
+		request.postFile();
 		
 		
 		System.out.println("killed all running processes!");
