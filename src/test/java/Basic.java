@@ -87,13 +87,7 @@ public class Basic {
 		
 		
 		readProperties.killInput();
-		
 
-		HttpRequests request = new HttpRequests();
-
-		
-		request.postFile();
-		
 		
 		System.out.println("killed all running processes!");
 	}

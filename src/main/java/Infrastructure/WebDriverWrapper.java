@@ -181,7 +181,7 @@ public class WebDriverWrapper {
 	}
 	
 	
-	public void takeScreenShot(String name) throws IOException {
+	public File takeScreenShot(String name) throws IOException {
 		
 		TakesScreenshot sc = (TakesScreenshot) remoteWebDriver;
 		
@@ -189,9 +189,11 @@ public class WebDriverWrapper {
 		File source = sc.getScreenshotAs(OutputType.FILE);
 		
 		
-		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
+//		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
 		
-		System.out.println(name);
+		System.out.println(source.getName());
+		
+		return source;
 		
 	}
 	
