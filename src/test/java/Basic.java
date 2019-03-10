@@ -49,7 +49,7 @@ public class Basic {
 		prop = new Properties();
 		
 		
-		prop = readProperties.readPropFile(prop, "C:\\Users\\galif\\eclipse-workspace\\AutomationProject\\src\\test\\java\\SutProperties\\config.properties");
+		prop = readProperties.readPropFile(prop, "C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\src\\test\\java\\SutProperties\\config.properties");
 	
 	}
 	
@@ -92,7 +92,7 @@ public class Basic {
 		HttpRequests request = new HttpRequests();
 
 		
-		request.postFile();
+		request.postFile(prop.getProperty("TOKEN"));
 		
 		
 		System.out.println("killed all running processes!");
