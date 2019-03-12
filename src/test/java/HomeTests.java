@@ -21,8 +21,12 @@ public class HomeTests extends Basic {
 		driverWrapper.takeScreenShot("test");
 		
 		SlackService slack = new SlackService();
+	
+		Thread.sleep(10000);
 		
-		slack.send_message("http://sites.goop.co.il/GoopSitesFiles/0/User/Upload/1.jpg");
+		slack.uploadImage("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\test.png");
+
+//		slack.send_message("http://sites.goop.co.il/GoopSitesFiles/0/User/Upload/1.jpg");
 		
 //		HomeScreen.clickOnHelloRewardsPopup();
 //		
