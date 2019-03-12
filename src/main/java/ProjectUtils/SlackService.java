@@ -27,7 +27,7 @@ public class SlackService {
 			HttpResponse<String> response = Unirest.post("https://slack.com/api/chat.postMessage")
 					
 					  .header("accept", "application/json")
-					  .header("Authorization", "Bearer xoxs-568837673152-571019995094-574034181318-92322004fb6f31844ea52c046d36e53a49b281753e5bac4f7e4ff64b751943d6")
+					  .header("Authorization", System.getProperty("slack"))
 					  .field("channel", "CGTLKU1DH")
 					  .field("text", content)
 					  .asString();
@@ -50,7 +50,7 @@ public class SlackService {
 			HttpResponse<JsonNode> jsonResponse = Unirest.post("https://slack.com/api/files.upload")
 
 					  .header("accept", "application/json")
-					  .header("Authorization", "Bearer xoxs-568837673152-571019995094-574034181318-92322004fb6f31844ea52c046d36e53a49b281753e5bac4f7e4ff64b751943d6")
+					  .header("Authorization", System.getProperty("slack"))
 					  .field("channels", "CGTLKU1DH")
 					  .field("file", new File(image_path))
 					  .asJson();
