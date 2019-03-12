@@ -18,7 +18,7 @@ public class HomeTests extends Basic {
 	
 		HomeScreen.openRedLion();
 		
-		driverWrapper.takeScreenShot("test");
+		driverWrapper.takeScreenShot("test2");
 		
 		SlackService slack = new SlackService();
 	
