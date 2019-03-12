@@ -189,7 +189,7 @@ public class WebDriverWrapper {
 		File source = sc.getScreenshotAs(OutputType.FILE);
 		
 		
-//		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
+		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
 		
 		System.out.println(source.getName());
 		

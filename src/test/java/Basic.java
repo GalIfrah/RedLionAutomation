@@ -14,7 +14,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 import Infrastructure.WebDriverWrapper;
 import Infrastructure.GenericPageObject;
-import ProjectUtils.HttpRequests;
+import ProjectUtils.SlackService;
 import ProjectUtils.ProcessUtils;
 import ProjectUtils.ReadPropertyFile;
 

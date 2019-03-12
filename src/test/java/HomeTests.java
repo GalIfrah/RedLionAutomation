@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 
 import PageObjects.PageObjects.HomeScreen;
-import ProjectUtils.HttpRequests;
+import ProjectUtils.SlackService;
 
 public class HomeTests extends Basic {
 
@@ -18,11 +18,11 @@ public class HomeTests extends Basic {
 	
 		HomeScreen.openRedLion();
 		
-		driverWrapper.takeScreenShot("gal");
+		driverWrapper.takeScreenShot("test");
 		
-		HttpRequests request = new HttpRequests();
+		SlackService slack = new SlackService();
 		
-		request.postFile();
+		slack.send_message("http://sites.goop.co.il/GoopSitesFiles/0/User/Upload/1.jpg");
 		
 //		HomeScreen.clickOnHelloRewardsPopup();
 //		
