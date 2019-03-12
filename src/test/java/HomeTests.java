@@ -24,7 +24,7 @@ public class HomeTests extends Basic {
 	
 		Thread.sleep(10000);
 		
-		slack.uploadImage("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\test.png");
+		slack.uploadImage("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\test2.png");
 
 //		slack.send_message("http://sites.goop.co.il/GoopSitesFiles/0/User/Upload/1.jpg");
 		
