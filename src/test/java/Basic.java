@@ -20,6 +20,7 @@ import ProjectUtils.ReadPropertyFile;
 
 public class Basic {
 	
+	
 	public WebDriverWrapper driverWrapper;
 	
 	static final String HUB_BATCH_PATH = "C:\\Users\\galif\\OneDrive\\Desktop\\Selenium\\startgrid.bat";
@@ -30,6 +31,7 @@ public class Basic {
 	
 	public static Properties prop;
 	
+	public static String time_stamp = null;
 	
 	
 	
@@ -80,6 +82,12 @@ public class Basic {
 	@AfterClass
 	public static void tearDownClass() throws IOException, UnirestException {
 		
+		SlackService slack = new SlackService();
+		
+		
+		slack.uploadImage("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + time_stamp + ".png");
+		
+		
 		ProcessUtils.killProcess();
 		
 		
@@ -91,4 +99,13 @@ public class Basic {
 		
 		System.out.println("killed all running processes!");
 	}
+	
+	
+	
+	public void setTimeStemp(String taken_time_stamp) {
+		
+		time_stamp = taken_time_stamp;
+	
+	}
+	
 }
