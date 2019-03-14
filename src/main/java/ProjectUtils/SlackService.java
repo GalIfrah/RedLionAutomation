@@ -19,7 +19,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class SlackService {
 	
-	
+	static final String SLACK_TOKEN = "";
 	public void send_message(String content) throws UnirestException {
 
 		try {
@@ -44,9 +44,12 @@ public class SlackService {
 	
 
 	public void uploadImage(String image_path) throws UnirestException {
-
-		try {
 		
+		
+		try {
+			
+			Thread.sleep(10000);
+			
 			HttpResponse<JsonNode> jsonResponse = Unirest.post("https://slack.com/api/files.upload")
 
 					  .header("accept", "application/json")
@@ -63,6 +66,14 @@ public class SlackService {
 	
 		}
 		
+		catch (InterruptedException e) {
+			
+			
+			System.out.println(e.getMessage());
+	
+		}
+		
+	
 	}
 	
 }
