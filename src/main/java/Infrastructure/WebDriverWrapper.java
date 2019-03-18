@@ -191,7 +191,7 @@ public class WebDriverWrapper {
 		
 		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
 		
-		
+		System.out.println("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png");
 		return source;
 		
 	}

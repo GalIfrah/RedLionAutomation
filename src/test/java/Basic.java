@@ -87,6 +87,7 @@ public class Basic {
 		
 		slack.uploadImage("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + time_stamp + ".png");
 		
+		System.out.println("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + time_stamp + ".png");
 		
 		ProcessUtils.killProcess();
 		
