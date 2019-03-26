@@ -23,9 +23,9 @@ public class Basic {
 	
 	public WebDriverWrapper driverWrapper;
 	
-	static final String HUB_BATCH_PATH = "/RedLionAutomation/startgrid.bat";
+	static final String HUB_BATCH_PATH = "RedLionAutomation\\startgrid.bat";
 	
-	static final String NODE_BATCH_PATH = "/RedLionAutomation/startNode.bat";
+	static final String NODE_BATCH_PATH = "RedLionAutomation\\startNode.bat";
 		
 	public static ReadPropertyFile readProperties = new ReadPropertyFile();
 	
