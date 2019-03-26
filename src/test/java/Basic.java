@@ -23,9 +23,9 @@ public class Basic {
 	
 	public WebDriverWrapper driverWrapper;
 	
-//	static final String HUB_BATCH_PATH = "C:\\Users\\galif\\OneDrive\\Desktop\\Selenium\\startgrid.bat";
-//	
-//	static final String NODE_BATCH_PATH = "C:\\Users\\galif\\OneDrive\\Desktop\\Selenium\\startNode.bat";
+	static final String HUB_BATCH_PATH = "/RedLionAutomation/startgrid.bat";
+	
+	static final String NODE_BATCH_PATH = "/RedLionAutomation/startNode.bat";
 		
 	public static ReadPropertyFile readProperties = new ReadPropertyFile();
 	
@@ -42,12 +42,12 @@ public class Basic {
 	@BeforeClass
 	public static void setupClass() {
 		
-//		ProcessUtils.startBatchFromCmd(HUB_BATCH_PATH);
-//		
-//		
-//		ProcessUtils.startBatchFromCmd(NODE_BATCH_PATH);
-//	
-//		System.out.println("statr Grid");
+		ProcessUtils.startBatchFromCmd(HUB_BATCH_PATH);
+		
+		
+		ProcessUtils.startBatchFromCmd(NODE_BATCH_PATH);
+	
+		System.out.println("statr Grid");
 		
 		prop = new Properties();
 		
