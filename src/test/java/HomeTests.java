@@ -22,7 +22,7 @@ public class HomeTests extends Basic {
 	public void redLionReservation() throws Exception {
 	
 		HomeScreen.openRedLion();
-				
+		System.out.println("opened!!!!");		
 		HomeScreen.clickOnHelloRewards();
 				
 		HomeScreen.enterEmail();
