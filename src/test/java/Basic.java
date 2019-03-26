@@ -23,9 +23,9 @@ public class Basic {
 	
 	public WebDriverWrapper driverWrapper;
 	
-	static final String HUB_BATCH_PATH = "\\RedLionAutomation\\startgrid.bat";
+	static final String HUB_BATCH_PATH = "C:\\Users\\galif\\OneDrive\\Desktop\\Selenium\\startgrid.bat";
 	
-	static final String NODE_BATCH_PATH = "\\RedLionAutomation\\startNode.bat";
+	static final String NODE_BATCH_PATH = "C:\\Users\\galif\\OneDrive\\Desktop\\Selenium\\startNode.bat";
 		
 	public static ReadPropertyFile readProperties = new ReadPropertyFile();
 	
@@ -57,14 +57,14 @@ public class Basic {
 	}
 	
 	@Before
-	public void setup() throws MalformedURLException {
+	public void setup() throws IOException {
 		
 		driverWrapper = new WebDriverWrapper();
 
 		driverWrapper.init("http://10.10.80.32:4444/wd/hub");
 		
 		driverWrapper.MaximizeWIndow();
-		
+		driverWrapper.takeScreenShot("sdasda");
 		GenericPageObject.setDriver(driverWrapper);
 		
 		System.out.println(prop.getProperty("TOKEN"));
