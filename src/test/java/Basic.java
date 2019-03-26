@@ -61,7 +61,7 @@ public class Basic {
 		
 		driverWrapper = new WebDriverWrapper();
 
-		driverWrapper.init("http://localhost:4444/wd/hub");
+		driverWrapper.init("http://10.10.80.32:4444/wd/hub");
 		
 		driverWrapper.MaximizeWIndow();
 		
