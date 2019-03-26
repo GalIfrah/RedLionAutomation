@@ -33,6 +33,7 @@ public class PageObjects {
 		public static void openRedLion() {
 			
 			driverWrapper.open(SUT_URL);
+			System.out.println("works?");
 		}
 		
 		

@@ -67,6 +67,8 @@ public class Basic {
 		
 		GenericPageObject.setDriver(driverWrapper);
 		
+		System.out.println(prop.getProperty("TOKEN"));
+		
 		
 	}
 	
