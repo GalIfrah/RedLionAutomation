@@ -64,6 +64,8 @@ public class Basic {
 
 		driverWrapper.init("http://localhost:4444/wd/hub");
 		
+		System.out.println("init");
+
 		driverWrapper.MaximizeWIndow();
 		
 		GenericPageObject.setDriver(driverWrapper);
