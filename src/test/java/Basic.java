@@ -47,6 +47,7 @@ public class Basic {
 		
 		ProcessUtils.startBatchFromCmd(NODE_BATCH_PATH);
 	
+		System.out.println("statr Grid");
 		
 		prop = new Properties();
 		
