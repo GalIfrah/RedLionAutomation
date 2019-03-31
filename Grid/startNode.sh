@@ -1,0 +1,1 @@
+java -jar selenium-server-standalone.jar -role node  -hub http://localhost:4444/grid/register -browser browserName=chrome,maxInstances=20,seleniumProtocol=WebDriver -maxSession 20 -cleanUpCycle 10000 -timeout 300
