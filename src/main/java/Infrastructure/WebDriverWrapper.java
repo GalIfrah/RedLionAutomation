@@ -51,7 +51,7 @@ public class WebDriverWrapper {
 			} catch (NullPointerException e){
 				
 				
-				System.out.println("element not found - null");
+					System.out.println(e.getMessage());
 			}
 			break;
 			
@@ -67,7 +67,7 @@ public class WebDriverWrapper {
 			} catch (NullPointerException e){
 			
 				
-				System.out.println("element not found - null");
+				System.out.println(e.getMessage());
 			}
 			break;
 			
@@ -83,7 +83,7 @@ public class WebDriverWrapper {
 			} catch (NullPointerException e){
 			
 				
-				System.out.println("element not found - null");
+				System.out.println(e.getMessage());
 			}
 			break;
 		
@@ -91,7 +91,7 @@ public class WebDriverWrapper {
 		default:
 			
 			
-			System.out.println("the locator is wrong - please use the Locator enum");
+			System.out.println("the locator type is wrong - please use the Locator enum");
 		}
 		
 		
@@ -166,14 +166,24 @@ public class WebDriverWrapper {
 		WebElement elementToClick = remoteWebDriver.findElementByXPath(elementToClickValue);
 		
 		
-		action.moveToElement(elementToHover).click(elementToClick).build().perform();
+		action.moveToElement(elementToHover).doubleClick(elementToClick).build().perform();
 
 	}
 	
 	
-	public void scrollToElement(String value) throws InterruptedException {
-		
-		WebElement element = remoteWebDriver.findElement(By.xpath(value));
+	public void scrollToElement(String value) {
+
+		try {
+
+			Thread.sleep(2000);
+
+		} catch (InterruptedException e){
+
+			System.out.println(e.getMessage());
+
+		}
+
+		WebElement element = remoteWebDriver.findElementByXPath(value);
 		
 		
 		((JavascriptExecutor) remoteWebDriver).executeScript("arguments[0].scrollIntoView();", element);
@@ -181,19 +191,29 @@ public class WebDriverWrapper {
 	}
 	
 	
-	public File takeScreenShot(String name) throws IOException {
-		
-		TakesScreenshot sc = (TakesScreenshot) remoteWebDriver;
-		
-		
-		File source = sc.getScreenshotAs(OutputType.FILE);
-		
-		
-		FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
-		
-		System.out.println("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png");
+	public File takeScreenShot(String name){
+
+		File source = null;
+
+		try {
+
+			TakesScreenshot sc = (TakesScreenshot) remoteWebDriver;
+
+
+			source = sc.getScreenshotAs(OutputType.FILE);
+
+
+			FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
+
+			System.out.println("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png");
+
+		}
+
+		catch(IOException e){
+
+			}
+
 		return source;
-		
 	}
 	
 	
@@ -221,7 +241,7 @@ public class WebDriverWrapper {
 	}
 	
 	
-	public void waitForElement(int time_to_wait) {
+	public void waitForElement() {
 		
 		try {
 			
