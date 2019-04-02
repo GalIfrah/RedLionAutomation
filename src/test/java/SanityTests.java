@@ -18,10 +18,10 @@ public class SanityTests extends Basic {
         HomePage.openRedLion();
 
 
-        ConnectPage.login(prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
+        ConnectPage.login("liorl@mycheck.co.il", "Lior2311");// prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
 
 
-        HomePage.enterLocationName(prop.getProperty("CITY_TO_SEARCH"));
+        HomePage.enterLocationName("New York");// prop.getProperty("CITY_TO_SEARCH"));
 
 
         HomePage.chooseFirstLocation();
@@ -45,19 +45,20 @@ public class SanityTests extends Basic {
         HomePage.clickOnQuickBook();
 
 
-        ConfirmationPage.enterPhoneNumber(prop.getProperty("PHONE_NUMBER"));
+        ConfirmationPage.enterPhoneNumber("7394624324325");//prop.getProperty("PHONE_NUMBER"));
 
 
-        ConfirmationPage.enterPostalCode(prop.getProperty("POSTAL_CODE"));
-
-
-//        ConfirmationPage.clickOnMangePaymentMethods();
-//
-//
-//        ConfirmationPage.clickOnAddNewCard();
+        ConfirmationPage.enterPostalCode("55555555");//prop.getProperty("POSTAL_CODE"));
 
 
         String full_cancellation_text = OrderSummeryPage.getCancellationPolicyText();
+
+        System.out.println(full_cancellation_text);
+
+        ConfirmationPage.clickOnMangePaymentMethods();
+
+
+        ConfirmationPage.clickOnAddNewCard();
 
 
         if(OrderSummeryPage.HasCancellation(full_cancellation_text)) {

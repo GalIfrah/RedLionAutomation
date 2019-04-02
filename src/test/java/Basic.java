@@ -43,13 +43,13 @@ public class Basic {
 			prop = new Properties();
 
 
-			prop = readProperties.readPropFile(prop, "/home/gal/IdeaProjects/RedLionAutomation/src/test/java/SutProperties/config.properties");
+//			prop = readProperties.readPropFile(prop, "/home/gal/IdeaProjects/RedLionAutomation/src/test/java/SutProperties/config.properties");
 
-
-			ProcessUtils.startGrid(prop.getProperty("HUB_PATH"));
-
-
-			ProcessUtils.startGrid(prop.getProperty("NODE_PATH"));
+//
+//			ProcessUtils.startGrid(prop.getProperty("HUB_PATH"));
+//
+//
+//			ProcessUtils.startGrid(prop.getProperty("NODE_PATH"));
 
 	}
 
@@ -94,10 +94,10 @@ public class Basic {
 		SlackService slack = new SlackService();
 
 
-		slack.uploadImage("/home/gal/IdeaProjects/RedLionAutomation/ScreenShots/" + time_stamp + ".png");
+//		slack.uploadImage("/home/gal/IdeaProjects/RedLionAutomation/ScreenShots/" + time_stamp + ".png");
 
 
-		ProcessUtils.killProcess();
+//		ProcessUtils.killProcess();
 
 
 		readProperties.killInput();
