@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Properties;
 import ProjectUtils.SlackService;
+import lombok.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,11 +11,12 @@ import org.junit.rules.*;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import Infrastructure.WebDriverWrapper;
 import Infrastructure.GenericPageObject;
-import ProjectUtils.ProcessUtils;
 import ProjectUtils.ReadPropertyFile;
 
-
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Basic {
 
 
@@ -28,7 +30,8 @@ public class Basic {
 //
 //	static final String NODE_PATH = "/home/gal/IdeaProjects/RedLionAutomation/startNode.sh";
 
-	public static String time_stamp = null;
+	@Getter @Setter public static String time_stamp = null;
+
 
 
 
@@ -41,6 +44,7 @@ public class Basic {
 	public static void setupClass() {
 
 			prop = new Properties();
+
 
 
 //			prop = readProperties.readPropFile(prop, "/home/gal/IdeaProjects/RedLionAutomation/src/test/java/SutProperties/config.properties");
@@ -60,11 +64,10 @@ public class Basic {
 
 		driverWrapper = new WebDriverWrapper();
 
-
 		driverWrapper.init("http://localhost:4444/wd/hub");
 
 
-		driverWrapper.MaximizeWIndow();
+		driverWrapper.MaximizeWindow();
 
 
 		GenericPageObject.setDriver(driverWrapper);

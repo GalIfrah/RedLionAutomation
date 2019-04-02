@@ -150,6 +150,8 @@ public class PageObjects {
 
 			ConnectPage.clickOnHelloRewards_connectBtn();
 
+			driverWrapper.waitForElement();
+
 			ConnectPage.enterEmail(email);
 
 			ConnectPage.enterPassword(password);
@@ -173,6 +175,7 @@ public class PageObjects {
 
 			driverWrapper.scrollToElement(CANCELLATION_POLICY);
 
+			driverWrapper.waitForElement();
 
 			driverWrapper.hover(CANCELLATION_POLICY);
 
@@ -211,7 +214,7 @@ public class PageObjects {
 		static final String MANAGE_PAYMENT_METHODS_VIEW = "//*[@id='checkoutPayment']/div/div/header/h4";
 		static final String MANAGE_PAYMENT_METHODS_BTN = "//*[@id='myc-wallet']/div/div/div[4]/div[2]/div/span";
 		static final String ADD_NEW_CARD_BTN = "//div[@class='myc-wallet-common']/div[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[2]/ul/li[1]/span[text()='ADD NEW CARD']";
-
+		static final String ENTER_CC_FORM_IFRAME = "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe";
 
 
 		public static String getConfirmationText(){
