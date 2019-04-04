@@ -18,10 +18,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 public class WebDriverWrapper {
 
+
 	RemoteWebDriver remoteWebDriver;
-	
+
+
+
 	public void init(String remoteUrl) throws MalformedURLException {
 		
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -91,7 +96,7 @@ public class WebDriverWrapper {
 		default:
 			
 			
-			System.out.println("the locator type is wrong - please use the Locator enum");
+			System.out.println("the locator type is wrong - please use the Locators enum");
 		}
 		
 		
@@ -232,10 +237,23 @@ public class WebDriverWrapper {
 		
 		
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(value)));
-	} 
-	
-	
-	public void MaximizeWIndow() {
+	}
+
+
+	public void switchToIframe(String iframe_name){
+
+		remoteWebDriver.switchTo().frame(iframe_name);
+
+	}
+
+
+	public void switchToDefaultContent(){
+
+		remoteWebDriver.switchTo().defaultContent();
+	}
+
+
+	public void MaximizeWindow() {
 		
 		remoteWebDriver.manage().window().maximize();
 	}
