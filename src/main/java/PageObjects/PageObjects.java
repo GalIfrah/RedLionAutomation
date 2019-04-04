@@ -1,13 +1,13 @@
 package PageObjects;
 import java.util.List;
+
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import Infrastructure.GenericPageObject;
 import Infrastructure.Locators;
 
 
 public class PageObjects {
-
-
 
 	public static class HomePage extends GenericPageObject{
 
@@ -22,7 +22,7 @@ public class PageObjects {
 		static final String QUICK_BOOK_BTN = "//button[@class='btn-primary waves-effect waves-red'][text()='Quick Book']";
 
 
-
+		@Step("open sut")
 		public static void openRedLion() {
 
 			driverWrapper.open(SUT_URL);
@@ -47,7 +47,6 @@ public class PageObjects {
 
 			driverWrapper.findElementBy(Locators.ID, DATE_PICKER_FIELD).click();
 		}
-
 
 		public static List<WebElement> getDatePickerValues() {
 
@@ -146,6 +145,7 @@ public class PageObjects {
 		}
 
 
+		@Step("perform login")
 		public static void login(String email, String password){
 
 			ConnectPage.clickOnHelloRewards_connectBtn();
@@ -215,6 +215,9 @@ public class PageObjects {
 		static final String MANAGE_PAYMENT_METHODS_BTN = "//*[@id='myc-wallet']/div/div/div[4]/div[2]/div/span";
 		static final String ADD_NEW_CARD_BTN = "//div[@class='myc-wallet-common']/div[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[2]/ul/li[1]/span[text()='ADD NEW CARD']";
 		static final String ENTER_CC_FORM_IFRAME = "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe";
+		static final String AGREEMENT_CHECKBOX = "//label[@for='checkout-payment-agreement']";
+		static final String RESERV_PROOM_BTN = "//button[@id='btnReserveRoom']";
+
 
 
 		public static String getConfirmationText(){
@@ -254,6 +257,98 @@ public class PageObjects {
 			driverWrapper.waitForElemToBeClickable(ADD_NEW_CARD_BTN).click();
 
 		}
+
+
+		public static void clickOnAgreementCheckbox(){
+
+			driverWrapper.findElementBy(Locators.XPATH, AGREEMENT_CHECKBOX).click();
+
+
+		}
+
+
+		public static void clickOnReserveRoomBtn(){
+
+			driverWrapper.findElementBy(Locators.XPATH, RESERV_PROOM_BTN).click();
+		}
 	}
 
+
+	public static class Wallet extends GenericPageObject{
+
+
+		static final String CC_DETAILS_IFRAME = "paymentMethods";
+		static final String CC_NUMBER_FIELD = "creditNumber";
+		static final String EXP_DATE_FIELD = "fullYear";
+		static final String CVV_NUMBER_FIELD = "cvc";
+		static final String POSTAL_CODE_FIELD = "postalCode";
+		static final String APPLY_CC_BUTTON = "submit";
+		static final String ENTER_CC_FORM_IFRAME = "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe";
+		static final String WALLET_X_BTN = "//div[@class='myc-wallet-modal-close']";
+
+
+		public static void switchToWalletIframe(){
+
+			driverWrapper.switchToIframe(CC_DETAILS_IFRAME);
+		}
+
+
+		public static void enterCcNumber(String cc_number){
+
+			driverWrapper.findElementBy(Locators.ID, CC_NUMBER_FIELD).sendKeys(cc_number);
+
+		}
+
+
+		public static void enterExpDate(String exp_date){
+
+			driverWrapper.findElementBy(Locators.ID, EXP_DATE_FIELD).sendKeys(exp_date);
+
+		}
+
+
+		public static void enterCvv(String cvv_number){
+
+			driverWrapper.findElementBy(Locators.ID, CVV_NUMBER_FIELD).sendKeys(cvv_number);
+
+		}
+
+
+		public static void enterPostalCode(String postal_code){
+
+			driverWrapper.findElementBy(Locators.ID, POSTAL_CODE_FIELD).sendKeys(postal_code);
+
+		}
+
+
+		public static void clickOnApply(){
+
+			driverWrapper.findElementBy(Locators.ID, APPLY_CC_BUTTON).click();
+
+			driverWrapper.switchToDefaultContent();
+
+		}
+
+
+		public static void addPaymentMethod(){
+
+			Wallet.enterCcNumber(prop.getProperty("CC_NUMBER"));
+
+			Wallet.enterExpDate(prop.getProperty("EXP_DATE"));
+
+			Wallet.enterCvv(prop.getProperty("CVV"));
+
+			Wallet.enterPostalCode(prop.getProperty("ZIP_CODE"));
+
+			Wallet.clickOnApply();
+
+		}
+
+
+		public static void closeWallet(){
+
+			driverWrapper.findElementBy(Locators.XPATH, WALLET_X_BTN).click();
+		}
+
+	}
 }
