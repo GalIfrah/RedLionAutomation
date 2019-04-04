@@ -121,7 +121,10 @@
 			<artifactId>maven-surefire-plugin</artifactId>
 			<version>${maven-surefire-plugin.version}</version>
 			<configuration>
-
+				<skipTests>false</skipTests>
+				<testFailureIgnore>true</testFailureIgnore>
+				<forkCount>0</forkCount>
+				<reuseForks>false</reuseForks>
 
 				<properties>
 
@@ -131,7 +134,7 @@
 					</property>
 				</properties>
 				<includes>
-					<include>**/SanityTests*.java</include>
+					<include>**/*SanityTests*.java</include>
 				</includes>
 				<argLine>
 					-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -150,6 +153,14 @@
 
 			</configuration>
 			<dependencies>
+
+				<dependency>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+					<version>5.2.0</version>
+				</dependency>
+
+
 				<dependency>
 					<groupId>org.aspectj</groupId>
 					<artifactId>aspectjweaver</artifactId>
