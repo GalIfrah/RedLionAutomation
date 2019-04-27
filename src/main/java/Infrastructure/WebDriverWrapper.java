@@ -32,7 +32,7 @@ public class WebDriverWrapper {
 		
 		ChromeOptions options = new ChromeOptions();
 
-
+	options.setBinary("/home/gal/IdeaProjects/RedLionAutomation/chromedriver");
 		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
 	}
 	
