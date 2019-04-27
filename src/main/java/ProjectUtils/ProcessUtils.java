@@ -20,7 +20,7 @@ public class ProcessUtils {
 
 			process = runtime.exec(new String[]{"/bin/bash", "-c", sh_file_path});
 
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 
 		}catch(Exception e){
 
