@@ -1,6 +1,5 @@
 package PageObjects;
 import java.util.List;
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import Infrastructure.GenericPageObject;
@@ -171,7 +170,7 @@ public class PageObjects {
 
 
 
-		public static String getCancellationPolicyText() throws InterruptedException {
+		public static String getCancellationPolicyText(){
 
 			driverWrapper.scrollToElement(CANCELLATION_POLICY);
 
@@ -216,7 +215,7 @@ public class PageObjects {
 		static final String ADD_NEW_CARD_BTN = "//div[@class='myc-wallet-common']/div[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[2]/ul/li[1]/span[text()='ADD NEW CARD']";
 		static final String ENTER_CC_FORM_IFRAME = "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe";
 		static final String AGREEMENT_CHECKBOX = "//label[@for='checkout-payment-agreement']";
-		static final String RESERV_PROOM_BTN = "//button[@id='btnReserveRoom']";
+		static final String RESERV_ROOM_BTN = "//button[@id='btnReserveRoom']";
 
 
 
@@ -269,8 +268,88 @@ public class PageObjects {
 
 		public static void clickOnReserveRoomBtn(){
 
-			driverWrapper.findElementBy(Locators.XPATH, RESERV_PROOM_BTN).click();
+			driverWrapper.scrollToElement(RESERV_ROOM_BTN);
+
+
+			driverWrapper.waitForElemToBeClickable(RESERV_ROOM_BTN).click();
 		}
+
+
+
+	}
+
+
+	public static class ReservationSummery extends GenericPageObject{
+
+
+		// CANCEL RESERVATION - BEFORE CANCELLATION
+
+		static final String RESERVATION_NUMBER_TEXT = "//p[@class='margin-bottom-60 text-red-base roboto-medium font-size-18']";
+		static final String CANCEL_RESERVATION_BTN = "//a[@id='btnCancelReservation']";
+
+
+		// CANCEL RESERVATION MODAL
+
+		static final String CANCEL_RESARVATION_CHECKBOX = "//label[@for='cancel-reservation-agreement']";
+		static final String CANCEL_RESARVATION_CONFIRM_BTN = "btnCancelReservationConfirm";
+
+		// CANCEL RESERVATION - AFTER CANCELLATION
+
+		static final String CANCELLATION_NUMBER_TEXT = "cancelID";
+
+
+
+		public static void waitForConfirmationScreen(){
+
+			driverWrapper.waitForVisibilityByXpath(RESERVATION_NUMBER_TEXT);
+
+
+			driverWrapper.waitForElement();
+
+		}
+
+
+		public static void clickOnCancellationBtn(){
+
+			driverWrapper.scrollToElement(CANCEL_RESERVATION_BTN);
+
+
+			driverWrapper.waitForElement();
+
+
+			driverWrapper.findElementBy(Locators.XPATH, CANCEL_RESERVATION_BTN).click();
+
+		}
+
+
+		public static String getReservationNumber(){
+
+
+
+			String reservation_full_text = driverWrapper.findElementBy(Locators.XPATH, RESERVATION_NUMBER_TEXT).getText();
+
+
+			return reservation_full_text.substring(reservation_full_text.indexOf(" "), reservation_full_text.length() - 1);
+		}
+
+
+		public static void clickOnCancellAgreementCheckbox(){
+
+			driverWrapper.findElementBy(Locators.XPATH, CANCEL_RESARVATION_CHECKBOX).click();
+		}
+
+
+		public  static void clickOnCancellConfirmationBtn(){
+
+			driverWrapper.findElementBy(Locators.ID, CANCEL_RESARVATION_CONFIRM_BTN).click();
+		}
+
+
+		public static String getCancalationNumber(){
+
+			return driverWrapper.waitForVisibilityById(CANCELLATION_NUMBER_TEXT).getText();
+		}
+
 	}
 
 
@@ -283,7 +362,6 @@ public class PageObjects {
 		static final String CVV_NUMBER_FIELD = "cvc";
 		static final String POSTAL_CODE_FIELD = "postalCode";
 		static final String APPLY_CC_BUTTON = "submit";
-		static final String ENTER_CC_FORM_IFRAME = "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe";
 		static final String WALLET_X_BTN = "//div[@class='myc-wallet-modal-close']";
 
 
@@ -325,6 +403,7 @@ public class PageObjects {
 
 			driverWrapper.findElementBy(Locators.ID, APPLY_CC_BUTTON).click();
 
+
 			driverWrapper.switchToDefaultContent();
 
 		}
@@ -342,10 +421,15 @@ public class PageObjects {
 
 			Wallet.clickOnApply();
 
+			driverWrapper.waitForElement();
+
 		}
 
 
 		public static void closeWallet(){
+
+			driverWrapper.waitForElement();
+
 
 			driverWrapper.findElementBy(Locators.XPATH, WALLET_X_BTN).click();
 		}
