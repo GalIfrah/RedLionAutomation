@@ -1,101 +1,133 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import Infrastructure.Locators;
+import io.qameta.allure.*;
 import org.junit.Test;
 import PageObjects.PageObjects.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-import static org.junit.Assert.*;
-
+@Epic("sanity tests")
+@Feature("sanity options")
 
 public class SanityTests extends Basic {
 
 
-    public String time_stamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 
-    @Story("trying allure")
-    @Description("test test")
     @Test
-    public void redLionSanity() throws InterruptedException {
+    @Story("Sanity1")
+    @Description("E2E - user make full flow with adding cc")
+    @Severity(SeverityLevel.BLOCKER)
+    public void redLionSanity(){
 
+
+        // login
 
         HomePage.openRedLion();
 
-        assertTrue(1==1);
+        ConnectPage.login(prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
 
-//        ConnectPage.login("liorl@mycheck.co.il", "Lior2311");// prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
-//
-//
-//        HomePage.enterLocationName("New York");// prop.getProperty("CITY_TO_SEARCH"));
-//
-//
-//        HomePage.chooseFirstLocation();
-//
-//
-//        HomePage.clickOnStartDateField();
-//
-//
-//        int active_date = HomePage.getSelectedStartDateIndex(HomePage.getDatePickerValues());
-//
-//
-//        HomePage.getDatePickerValues().get(active_date + 4).click();
-//
-//
-//        HomePage.getDatePickerValues().get(active_date + 5).click();
-//
-//
-//        HomePage.clickOnCheckAvailability();
-//
-//
-//        HomePage.clickOnQuickBook();
-//
-//
-//        ConfirmationPage.enterPhoneNumber("7394624324325");//prop.getProperty("PHONE_NUMBER"));
-//
-//
-//        ConfirmationPage.enterPostalCode("55555555");//prop.getProperty("POSTAL_CODE"));
-//
-//
-//        String full_cancellation_text = OrderSummeryPage.getCancellationPolicyText();
-//
-//        System.out.println(full_cancellation_text);
-//
-//        ConfirmationPage.clickOnMangePaymentMethods();
-//
-//
-//        ConfirmationPage.clickOnAddNewCard();
-//
-//        driverWrapper.swichToIfarme();
-//
-//        if(OrderSummeryPage.HasCancellation(full_cancellation_text)) {
-//
-//
-//            setTime_stamp(time_stamp);
-//
-//
-//            driverWrapper.takeScreenShot(time_stamp);
-//
-//
-//            // perform room reservation - needs real payment methods...
-//
-//
-////            String confirmation_text = ConfirmationPage.getConfirmationText();
-////
-////
-////            assertEquals(confirmation_text, prop.getProperty("CONFIRMATION_TEXT"));
-//        }
-//
-//
-//		else{
-//
-//                fail("no cancellation policy");
-//
-//            }
 
+
+        // choose hotel & week a head dates
+
+        HomePage.enterLocationName(prop.getProperty("CITY_TO_SEARCH"));
+
+
+        HomePage.chooseFirstLocation();
+
+
+        HomePage.clickOnStartDateField();
+
+
+        int active_date = HomePage.getSelectedStartDateIndex(HomePage.getDatePickerValues());
+
+
+        HomePage.getDatePickerValues().get(active_date + 4).click();
+
+
+        HomePage.getDatePickerValues().get(active_date + 5).click();
+
+
+        HomePage.clickOnCheckAvailability();
+
+
+        HomePage.clickOnQuickBook();
+
+
+
+        // fill confirmation data & get cancellation policy text
+
+        ConfirmationPage.enterPhoneNumber(prop.getProperty("PHONE_NUMBER"));
+
+
+        ConfirmationPage.enterPostalCode(prop.getProperty("POSTAL_CODE"));
+
+
+        String full_cancellation_text = OrderSummeryPage.getCancellationPolicyText();
+
+
+        ConfirmationPage.clickOnAgreementCheckbox();
+
+
+        System.out.println(full_cancellation_text);
+
+
+
+        // add payment method
+
+        ConfirmationPage.clickOnMangePaymentMethods();
+
+
+        ConfirmationPage.clickOnAddNewCard();
+
+
+        Wallet.switchToWalletIframe();
+
+
+        Wallet.addPaymentMethod();
+
+
+        Wallet.closeWallet();
+
+
+
+        // complete reservation
+
+        if(OrderSummeryPage.HasCancellation(full_cancellation_text)) {
+
+
+            ConfirmationPage.clickOnReserveRoomBtn();
+
+
+            ReservationSummery.waitForConfirmationScreen();
+
+
+            driverWrapper.takeScreenShot("reservationSummery");
+
+
+            ReservationSummery.clickOnCancellationBtn();
+
+
+            ReservationSummery.clickOnCancellAgreementCheckbox();
+
+
+            ReservationSummery.clickOnCancellConfirmationBtn();
+
+
+            ReservationSummery.getCancalationNumber();
+
+
+            driverWrapper.takeScreenShot("cancellationSummery");
+
+
+        }
+
+
+		else{
+
+            fail("no cancellation policy");
+
+
+            }
 
         }
 

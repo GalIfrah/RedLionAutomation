@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.Properties;
+
+import ProjectUtils.ProcessUtils;
 import ProjectUtils.SlackService;
+
 import lombok.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -26,11 +29,10 @@ public class Basic {
 
 	public static ReadPropertyFile readProperties = new ReadPropertyFile();
 
-//	static final String HUB_PATH = "/home/gal/IdeaProjects/RedLionAutomation/startHub.sh";
-//
-//	static final String NODE_PATH = "/home/gal/IdeaProjects/RedLionAutomation/startNode.sh";
+	public static ProcessUtils processUtils = new ProcessUtils();
 
-	@Getter @Setter public static String time_stamp = null;
+
+	@Setter @Getter public static String time_stamp = null;
 
 
 
@@ -46,14 +48,16 @@ public class Basic {
 			prop = new Properties();
 
 
+			prop = readProperties.readPropFile(prop, "/home/gal/IdeaProjects/RedLionAutomation/src/test/java/SutProperties/config.properties");
 
-//			prop = readProperties.readPropFile(prop, "/home/gal/IdeaProjects/RedLionAutomation/src/test/java/SutProperties/config.properties");
 
-//
-//			ProcessUtils.startGrid(prop.getProperty("HUB_PATH"));
-//
-//
-//			ProcessUtils.startGrid(prop.getProperty("NODE_PATH"));
+			GenericPageObject.setProp(prop);
+
+
+			processUtils.startGrid(prop.getProperty("HUB_PATH"));
+
+
+			processUtils.startGrid(prop.getProperty("NODE_PATH"));
 
 	}
 
@@ -64,13 +68,14 @@ public class Basic {
 
 		driverWrapper = new WebDriverWrapper();
 
+
 		driverWrapper.init("http://localhost:4444/wd/hub");
 
 
 		driverWrapper.MaximizeWindow();
 
 
-		GenericPageObject.setDriver(driverWrapper);
+		GenericPageObject.setDriverWrapper(driverWrapper);
 
 
 	}
@@ -93,14 +98,14 @@ public class Basic {
 
 	@AfterClass
 	public static void tearDownClass() throws IOException, UnirestException {
-
-		SlackService slack = new SlackService();
-
-
+//
+//		SlackService slack = new SlackService();
+//
+//
 //		slack.uploadImage("/home/gal/IdeaProjects/RedLionAutomation/ScreenShots/" + time_stamp + ".png");
+//
 
-
-//		ProcessUtils.killProcess();
+		ProcessUtils.killProcess();
 
 
 		readProperties.killInput();
@@ -112,10 +117,5 @@ public class Basic {
 
 
 
-	public void setTimeStemp(String taken_time_stamp) {
-
-		time_stamp = taken_time_stamp;
-
-	}
 
 }
