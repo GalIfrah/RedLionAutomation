@@ -32,7 +32,10 @@ public class WebDriverWrapper {
 		
 		ChromeOptions options = new ChromeOptions();
 
-	options.setBinary("chromedriver");
+
+		options.setHeadless(true);
+
+
 		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
 	}
 	
