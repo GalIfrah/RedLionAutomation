@@ -33,7 +33,7 @@ public class WebDriverWrapper {
 		ChromeOptions options = new ChromeOptions();
 
 
-		options.setHeadless(true);
+//		options.setHeadless(true);
 
 
 		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
