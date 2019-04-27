@@ -1,6 +1,5 @@
 package PageObjects;
 import java.util.List;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import Infrastructure.GenericPageObject;
 import Infrastructure.Locators;
@@ -21,7 +20,6 @@ public class PageObjects {
 		static final String QUICK_BOOK_BTN = "//button[@class='btn-primary waves-effect waves-red'][text()='Quick Book']";
 
 
-		@Step("open sut")
 		public static void openRedLion() {
 
 			driverWrapper.open(SUT_URL);
@@ -144,7 +142,6 @@ public class PageObjects {
 		}
 
 
-		@Step("perform login")
 		public static void login(String email, String password){
 
 			ConnectPage.clickOnHelloRewards_connectBtn();

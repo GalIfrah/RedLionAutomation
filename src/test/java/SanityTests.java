@@ -1,21 +1,14 @@
 import Infrastructure.Locators;
-import io.qameta.allure.*;
 import org.junit.Test;
 import PageObjects.PageObjects.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 
-@Epic("sanity tests")
-@Feature("sanity options")
 
 public class SanityTests extends Basic {
 
 
 
     @Test
-    @Story("Sanity1")
-    @Description("E2E - user make full flow with adding cc")
-    @Severity(SeverityLevel.BLOCKER)
     public void redLionSanity(){
 
 
