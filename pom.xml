@@ -150,6 +150,7 @@
                     <testFailureIgnore>false</testFailureIgnore>
                     <forkCount>0</forkCount>
                     <reuseForks>false</reuseForks>
+                    <argLine>-Xmx1024m</argLine>
 
                     <properties>
                         <property>
