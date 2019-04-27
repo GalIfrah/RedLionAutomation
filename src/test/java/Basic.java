@@ -53,11 +53,13 @@ public class Basic {
 
 			GenericPageObject.setProp(prop);
 
-
+		System.out.println("before");
 			processUtils.startGrid(prop.getProperty("HUB_PATH"));
 
 
 			processUtils.startGrid(prop.getProperty("NODE_PATH"));
+
+		System.out.println("after");
 
 	}
 
