@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -29,10 +30,10 @@ public class WebDriverWrapper {
 
 	public void init(String remoteUrl) throws MalformedURLException {
 		
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		ChromeOptions options = new ChromeOptions();
+
 		
-		
-		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), capabilities);
+		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
 	}
 	
 	
