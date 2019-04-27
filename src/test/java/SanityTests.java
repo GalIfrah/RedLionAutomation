@@ -16,6 +16,8 @@ public class SanityTests extends Basic {
 
         HomePage.openRedLion();
 
+        driverWrapper.takeScreenShot("test");
+
 //        ConnectPage.login(prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
 //
 //
