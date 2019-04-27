@@ -164,7 +164,7 @@
                         <include>**/*SanityTests*.java</include>
                     </includes>
 
-                    <argLine>-Xms512m -Xmx512m</argLine>
+                    <argLine>-Xms256m -Xmx512m</argLine>
 
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
