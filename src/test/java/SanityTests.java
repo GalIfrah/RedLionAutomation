@@ -23,13 +23,13 @@ public class SanityTests extends Basic {
 
         HomePage.openRedLion();
 
-        ConnectPage.login(prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
-
-
-
-        // choose hotel & week a head dates
-
-        HomePage.enterLocationName(prop.getProperty("CITY_TO_SEARCH"));
+//        ConnectPage.login(prop.getProperty("EMAIL"), prop.getProperty("PASSWORD"));
+//
+//
+//
+//        // choose hotel & week a head dates
+//
+//        HomePage.enterLocationName(prop.getProperty("CITY_TO_SEARCH"));
 
         System.out.println("gal");
 //        HomePage.chooseFirstLocation();
