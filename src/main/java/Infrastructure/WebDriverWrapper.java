@@ -76,23 +76,7 @@ public class WebDriverWrapper {
 			}
 			break;
 			
-			
-		case NAME:
-			
-			try {
-			
-			
-				element = driverWait.until(ExpectedConditions.presenceOfElementLocated(By.name(value)));
-			
-				
-			} catch (NullPointerException e){
-			
-				
-				System.out.println(e.getMessage());
-			}
-			break;
-		
-			
+
 		default:
 			
 			
@@ -112,11 +96,15 @@ public class WebDriverWrapper {
 		return driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(value)));
 		
 	}
-	
+
+
 	public void open(String url) {
+
+
 		remoteWebDriver.get(url);
 	}
-	
+
+
 	public void clearField(WebElement elementToClear) {
 		
 		elementToClear.clear();
@@ -133,20 +121,26 @@ public class WebDriverWrapper {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
+
 	public void close() {
+
 		remoteWebDriver.close();
 	}
-	
+
+
 	public void quit() {
+
 		remoteWebDriver.quit();
 	}
-	
+
+
 	public String getTitle() {
 		
 		return remoteWebDriver.getTitle(); 
 	}
-	
+
+
 	public void hover(String elementToHoverValue) {
 		
 		Actions action = new Actions(remoteWebDriver);
@@ -194,6 +188,25 @@ public class WebDriverWrapper {
 		((JavascriptExecutor) remoteWebDriver).executeScript("arguments[0].scrollIntoView();", element);
 		
 	}
+
+	public void scrollToElementById(String value) {
+
+		try {
+
+			Thread.sleep(2000);
+
+		} catch (InterruptedException e){
+
+			System.out.println(e.getMessage());
+
+		}
+
+		WebElement element = remoteWebDriver.findElementById(value);
+
+
+		((JavascriptExecutor) remoteWebDriver).executeScript("arguments[0].scrollIntoView();", element);
+
+	}
 	
 	
 	public File takeScreenShot(String name){
@@ -208,9 +221,9 @@ public class WebDriverWrapper {
 			source = sc.getScreenshotAs(OutputType.FILE);
 
 
-			FileUtils.copyFile(source, new File("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png"));
+			FileUtils.copyFile(source, new File("/home/gal/IdeaProjects/RedLionAutomation/ScreenShots/" + name + ".png"));
 
-			System.out.println("C:\\Users\\galif\\eclipse-workspace\\RedLionAutomation\\ScreenShots\\" + name + ".png");
+			System.out.println("/home/gal/IdeaProjects/RedLionAutomation/ScreenShots" + name + ".png");
 
 		}
 
@@ -240,6 +253,24 @@ public class WebDriverWrapper {
 	}
 
 
+//	check return type
+
+
+	public WebElement waitForVisibilityById(String value){
+
+		WebDriverWait wait = new WebDriverWait(remoteWebDriver, 15);
+
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(value)));
+	}
+
+	public WebElement waitForVisibilityByXpath(String value){
+
+		WebDriverWait wait = new WebDriverWait(remoteWebDriver, 15);
+
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(value)));
+	}
+
+
 	public void switchToIframe(String iframe_name){
 
 		remoteWebDriver.switchTo().frame(iframe_name);
@@ -263,9 +294,10 @@ public class WebDriverWrapper {
 		
 		try {
 			
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 		
 			
+
 		} catch(InterruptedException e) {
 			
 			
