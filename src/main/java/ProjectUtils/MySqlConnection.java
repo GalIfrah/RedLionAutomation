@@ -1,25 +1,10 @@
 package ProjectUtils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 
 public class MySqlConnection {
 
-
-    public static void main(String[] args) {
-
-        MySqlConnection obj_DB_Connection = new MySqlConnection();
-
-
-        Connection connection=obj_DB_Connection.get_connection();;
-
-
-//        connection=obj_DB_Connection.get_connection();
-
-
-        System.out.println(connection);
-    }
 
 
     public Connection get_connection(){
@@ -27,20 +12,70 @@ public class MySqlConnection {
         Connection connection=null;
 
 
-        try{
+            try{
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-            connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/RedLionAutomation","user","");
+                    Class.forName("com.mysql.jdbc.Driver");
 
 
-        }catch (Exception e) {
+                    connection=DriverManager.getConnection("jdbc:mysql://localhost:xxxxxx/RedLionAutomation","xxxxxxx","xxxxxxx");
 
-            System.out.println(e);
-        }
+
+            }catch (Exception e) {
+
+
+                    System.out.println(e);
+            }
 
 
         return connection;
+    }
+
+
+
+
+    public void select(Connection connection, String query, String colomn_label) {
+
+        try {
+
+            Statement stmt = connection.createStatement();
+
+
+            ResultSet rs = stmt.executeQuery(query);
+
+
+            while(rs.next()){
+
+                String desire_value  = rs.getString(colomn_label);
+
+
+                System.out.println(colomn_label + "\n");
+            }
+
+        } catch (SQLException e){
+
+            System.out.println(e.getMessage());
+
+        }
+
+    }
+
+
+
+
+    public void insert(Connection connection, String query){
+
+        try {
+
+            Statement stmt = connection.createStatement();
+
+
+            stmt.executeUpdate(query);
+
+
+        } catch (SQLException e){
+
+            System.out.println(e.getMessage());
+
+        }
     }
 }
