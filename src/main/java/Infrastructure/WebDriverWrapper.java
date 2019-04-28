@@ -34,7 +34,7 @@ public class WebDriverWrapper {
 
 		options.addArguments();
 
-		options.addArguments("--headless", "--disable-gpu", "--no-sandbox");
+		options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
 
 		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
 	}
