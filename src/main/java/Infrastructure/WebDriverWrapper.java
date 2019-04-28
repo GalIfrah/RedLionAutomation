@@ -32,7 +32,7 @@ public class WebDriverWrapper {
 		
 		ChromeOptions options = new ChromeOptions();
 
-
+		options.setBinary("/etc/alternatives/google-chrome");
 //		options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
 
 		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
