@@ -30,10 +30,13 @@ public class WebDriverWrapper {
 
 	public void init(String remoteUrl) throws MalformedURLException {
 		
-		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		ChromeOptions options = new ChromeOptions();
 
+		options.addArguments();
 
-		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), caps);
+		options.addArguments("--headless", "--disable-gpu", "--no-sandbox");
+
+		remoteWebDriver = new RemoteWebDriver(new URL(remoteUrl), options);
 	}
 	
 	
